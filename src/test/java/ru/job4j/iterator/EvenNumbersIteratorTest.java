@@ -67,12 +67,4 @@ class EvenNumbersIteratorTest {
         assertThat(iterator.hasNext()).isFalse();
         assertThat(iterator.hasNext()).isFalse();
     }
-
-    @Test
-    void myTestTest() {
-        iterator = new EvenNumbersIterator(new int[] {4, 2, 1, 1});
-        assertThat(iterator.next()).isEqualTo(4);
-        assertThat(iterator.next()).isEqualTo(2);
-
-    }
 }

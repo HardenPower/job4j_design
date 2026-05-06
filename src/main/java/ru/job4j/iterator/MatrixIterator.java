@@ -11,10 +11,6 @@ public class MatrixIterator implements Iterator<Integer> {
     public MatrixIterator(int[][] data) {
         this.data = data;
     }
-//    int[][] input = {
-//            {1, 2},
-//            {3, 4}
-//    };
 
     @Override
     public boolean hasNext() {
@@ -32,5 +28,4 @@ public class MatrixIterator implements Iterator<Integer> {
         }
         return data[row][column++]; // берём текущий элемент и двигаем column
     }
-
 }

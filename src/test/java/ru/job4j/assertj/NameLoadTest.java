@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.*;
 
 class NameLoadTest {
     @Test
-    void checkEmpty() {
+    void whenCheckEmptyThenNoData() {
         NameLoad nameLoad = new NameLoad();
         assertThatThrownBy(nameLoad::getMap)
                 .isInstanceOf(IllegalStateException.class)
@@ -13,7 +13,7 @@ class NameLoadTest {
     }
 
     @Test
-    void checkParseEmptyArray() {
+    void whenParseEmptyArrayThenArrayEmpty() {
         NameLoad nameLoad = new NameLoad();
         assertThatThrownBy(nameLoad::parse)
                 .isInstanceOf(IllegalArgumentException.class)
@@ -21,7 +21,7 @@ class NameLoadTest {
     }
 
     @Test
-    void checkNotContainsEqualSign() {
+    void whenNoEqualSignThenNoEqualSign() {
         NameLoad nameLoad = new NameLoad();
         String name = "test name without equal sign";
         assertThatThrownBy(() -> nameLoad.parse(name))
@@ -31,7 +31,7 @@ class NameLoadTest {
     }
 
     @Test
-    void checkStartsWithEqualSign() {
+    void whenStartsWithEqualSignThenNoKey() {
         NameLoad nameLoad = new NameLoad();
         String name = "=";
         assertThatThrownBy(() -> nameLoad.parse(name))
@@ -41,7 +41,7 @@ class NameLoadTest {
     }
 
     @Test
-    void checkNoValue() {
+    void whenNoValueThenNoValue() {
         NameLoad nameLoad = new NameLoad();
         String name = "key=";
         assertThatThrownBy(() -> nameLoad.parse(name))
